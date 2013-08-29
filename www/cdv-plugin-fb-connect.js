@@ -20,7 +20,8 @@ CDV = {
      */
 
     exec(function (e) {
-        var authResponse = JSON.parse(localStorage.getItem('cdv_fb_session') || '{"expiresIn":0}');
+        var fbSession = localStorage.getItem('cdv_fb_session');
+        var authResponse = (fbSession !== "undefined" ? JSON.parse(fbSession):{expiresIn:0});
         if (authResponse && authResponse.expirationTime) {
           var nowTime = (new Date()).getTime();
           if (authResponse.expirationTime > nowTime) {
