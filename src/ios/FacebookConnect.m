@@ -1,5 +1,5 @@
 //
-//  FacebookConnectPlugin.m
+//  FacebookConnect.m
 //  GapFacebookConnect
 //
 //  Created by Jesse MacFadyen on 11-04-22.
@@ -8,9 +8,9 @@
 //  Copyright 2011 Nitobi, Mathijs de Bruin. All rights reserved.
 //
 
-#import "FacebookConnectPlugin.h"
+#import "FacebookConnect.h"
 
-@interface FacebookConnectPlugin ()
+@interface FacebookConnect ()
 
 @property (strong, nonatomic) NSString *userid;
 @property (strong, nonatomic) NSString* loginCallbackId;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation FacebookConnectPlugin
+@implementation FacebookConnect
 
 /* This overrides CDVPlugin's method, which receives a notification when handleOpenURL is called on the main app delegate */
 - (void) handleOpenURL:(NSNotification*)notification

@@ -1,5 +1,5 @@
 //
-//  FacebookConnectPlugin.h
+//  FacebookConnect.h
 //  GapFacebookConnect
 //
 //  Created by Jesse MacFadyen on 11-04-22.
@@ -11,7 +11,7 @@
 
 #import <Cordova/CDV.h>
 
-@interface FacebookConnectPlugin : CDVPlugin {
+@interface FacebookConnect : CDVPlugin {
 }
 
 @end
