@@ -21,10 +21,10 @@ import com.facebook.android.Facebook;
 import com.facebook.android.Facebook.DialogListener;
 import com.facebook.android.FacebookError;
 
-public class ConnectPlugin extends CordovaPlugin {
+public class FacebookConnect extends CordovaPlugin {
 
     public static final String SINGLE_SIGN_ON_DISABLED = "service_disabled";
-    private final String TAG = "ConnectPlugin";
+    private final String TAG = "FacebookConnect";
 
     private Facebook facebook;
     private String userId;
@@ -85,7 +85,7 @@ public class ConnectPlugin extends CordovaPlugin {
 
         else if (action.equals("login")) {
             if (facebook != null) {
-            	final ConnectPlugin me = this;
+            	final FacebookConnect me = this;
                 String[] permissions = new String[args.length()];
                 try {
                     for (int i=0; i<args.length(); i++) {
@@ -161,7 +161,7 @@ public class ConnectPlugin extends CordovaPlugin {
         			params = new JSONObject();
         		}
         		
-        		final ConnectPlugin me = this;
+        		final FacebookConnect me = this;
         		Iterator<?> iter = params.keys();
         		while (iter.hasNext()) {
         			String key = (String) iter.next();
@@ -237,9 +237,9 @@ public class ConnectPlugin extends CordovaPlugin {
     }
     
     class UIDialogListener implements DialogListener {
-   	 final ConnectPlugin fba;
+   	 final FacebookConnect fba;
 
-		public UIDialogListener(ConnectPlugin fba){
+		public UIDialogListener(FacebookConnect fba){
 			super();
 			this.fba = fba;
 		}
@@ -267,9 +267,9 @@ public class ConnectPlugin extends CordovaPlugin {
 	}
 
     class AuthorizeListener implements DialogListener {
-        final ConnectPlugin fba;
+        final FacebookConnect fba;
 
-        public AuthorizeListener(ConnectPlugin fba){
+        public AuthorizeListener(FacebookConnect fba){
             super();
             this.fba = fba;
         }
