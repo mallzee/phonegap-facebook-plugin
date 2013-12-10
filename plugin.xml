@@ -53,7 +53,7 @@
 
     <config-file target="config.xml" parent="/*">
       <feature name="FacebookConnect">
-        <param name="ios-package" value="FacebookConnectPlugin" />
+        <param name="ios-package" value="FacebookConnect" />
       </feature>
       <access origin="https://m.facebook.com" />
       <access origin="https://graph.facebook.com" />
@@ -62,9 +62,9 @@
       <access origin="https://*.akamaihd.net" />
     </config-file>
 
-    <header-file src="src/ios/FacebookConnectPlugin.h" />
+    <header-file src="src/ios/FacebookConnect.h" />
 
-    <source-file src="src/ios/FacebookConnectPlugin.m" />
+    <source-file src="src/ios/FacebookConnect.m" />
 
     <framework src="CoreGraphics.framework" />
 
