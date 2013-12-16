@@ -8857,7 +8857,7 @@ try {window.FB || (function(window) {
       if ('nativeInterface' in options) {
         Runtime.setNativeInterface(options.nativeInterface);
         Runtime.getNativeInterface().init(appId, function(e) {
-          Auth.setAuthResponse(e.authResponse, 'connected');
+          Auth.setAuthResponse(e, 'connected');
         }, function(e) { alert('Cordova Facebook Connect plugin failed on init' + e); });
       }
       // END PATCH
