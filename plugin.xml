@@ -5,17 +5,11 @@
     version="0.3.8">
 
     <name>Facebook Connect</name>
-    
+
     <description>
-      &lt;p&gt;This is the official plugin for Facebook in Apache Cordova/PhoneGap!&lt;/p&gt;
-      
-      &lt;p&gt;The Facebook plugin for Apache Cordova allows you to use the same JavaScript code in your
-      Cordova application as you use in your web application. However, unlike in the browser, the
-      Cordova application will use the native Facebook app to perform Single Sign On for the user.
-      If this is not possible then the sign on will degrade gracefully using the standard dialog
-      based authentication.&lt;/p&gt;
+        Hacky Facebook Connect Plugin
     </description>
-    
+
     <license>Apache 2.0</license>
 
     <js-module src="www/pg-plugin-fb-connect.js" name="cdv.fb">
@@ -25,7 +19,7 @@
     <js-module src="www/facebook-connect-debug.js" name="fb">
         <merges target="FB" />
     </js-module>
-    
+
     <config-file target="config.xml" parent="/*">
       <access origin="https://m.facebook.com" />
       <access origin="https://graph.facebook.com" />
@@ -51,6 +45,12 @@
             </feature>
         </config-file>
 
+        <!-- manifest -->
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="com.facebook.LoginActivity" android:label="@string/app_name" />
+        </config-file>
+
         <!-- res files -->
         <source-file src="src/android/facebook/res/drawable/close.png" target-dir="res/drawable" />
         <source-file src="src/android/facebook/res/drawable/facebook_icon.png" target-dir="res/drawable" />
@@ -59,10 +59,10 @@
         <source-file src="src/android/facebook/res/drawable-ldpi/close.png" target-dir="res/drawable-ldpi" />
         <source-file src="src/android/facebook/res/drawable-ldpi/facebook_icon.png" target-dir="res/drawable-ldpi" />
         <source-file src="src/android/facebook/res/drawable-xhdpi/close.png" target-dir="res/drawable-xhdpi" />
-        
+
         <!-- cordova plugin src files -->
         <source-file src="src/android/ConnectPlugin.java" target-dir="src/org/apache/cordova/facebook" />
-        
+
         <!-- facebook src files -->
         <source-file src="src/android/facebook/AsyncFacebookRunner.java" target-dir="src/com/facebook/android" />
         <source-file src="src/android/facebook/DialogError.java" target-dir="src/com/facebook/android" />
@@ -70,9 +70,9 @@
         <source-file src="src/android/facebook/FacebookError.java" target-dir="src/com/facebook/android" />
         <source-file src="src/android/facebook/FbDialog.java" target-dir="src/com/facebook/android" />
         <source-file src="src/android/facebook/Util.java" target-dir="src/com/facebook/android" />
-         
+
     </platform>
-    
+
     <!-- ios -->
     <platform name="ios">
 
@@ -87,11 +87,11 @@
         <config-file target="*-Info.plist" parent="FacebookAppID">
             <string>$APP_ID</string>
         </config-file>
-        
+
         <config-file target="*-Info.plist" parent="FacebookDisplayName">
             <string>$APP_NAME</string>
         </config-file>
-        
+
         <config-file target="*-Info.plist" parent="CFBundleURLTypes">
           <array>
             <dict>
@@ -107,9 +107,8 @@
         <header-file src="src/ios/FacebookConnectPlugin.h" />
         <source-file src="src/ios/FacebookConnectPlugin.m" />
 
-        <!-- release facebook 3.8 framework>
-        <source-file src="src/ios/FacebookSDK.framework" framework="true" /-->
-        <framework src="CoreGraphics.framework" />
+        <!-- release facebook 3.8 framework> -->
+        <framework src="src/ios/FacebookSDK.framework" custom="true"  />
 
         <!-- facebook header files >
         <header-file src="src/ios/FacebookSDK.framework/Versions/A/Headers/FacebookSDK.h" target-dir="facebook" />
@@ -148,10 +147,10 @@
         <header-file src="src/ios/FacebookSDK.framework/Versions/A/Headers/FBViewController.h" target-dir="facebook" />
         <header-file src="src/ios/FacebookSDK.framework/Versions/A/Headers/FBWebDialogs.h" target-dir="facebook" />
         <header-file src="src/ios/FacebookSDK.framework/Versions/A/Headers/NSError+FBError.h" target-dir="facebook" /-->
-        
+
         <!-- facebook resource bundles>
         <resource-file src="src/ios/FacebookSDK.framework/Versions/Current/Resources/FBUserSettingsViewResources.bundle" /-->
-        
+
         <!-- system frameworks ARE THESE STILL REQUIRED? -->
         <framework src="libsqlite3.dylib" />
         <framework src="Social.framework" weak="true" />
