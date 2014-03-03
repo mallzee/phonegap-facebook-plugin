@@ -7699,14 +7699,14 @@ try {window.FB || (function(window) {
             NFB.login(params, function(e) {
               // Take the auth response from the native request and set the javascript side to match it
               Auth.setAuthResponse(e.authResponse, 'connected');
-              cb(e);
+              //cb(e);
             }, function(e) {alert('Cordova Facebook Connect plugin fail on login!' + e);});
             break;
           case 'auth.logout':
             NFB.logout(function(e) {
               // Take the auth response from the native request and set the javascript side to match it
               Auth.setAuthResponse(null, 'unknown');
-              cb(e);
+              //cb(e);
             }, function(e) {alert('Cordova Facebook Connect plugin fail on logout!');});
             break;
           case 'auth.status':
